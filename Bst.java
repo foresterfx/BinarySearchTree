@@ -20,22 +20,22 @@ public class Bst<T extends Comparable<T>> implements Iterable<T> {
     * Returns true if this bst contains element, false otherwise. 
     */
    public boolean contains(T element) {
-      Node n = root;
-      int cmp = 0;
-      while (n != null) {
-         cmp = element.compareTo(n.element);
+      Node n = root; // copy of the bst root Node
+      int cmp = 0; // compareTo integer
+      while (n != null) { // while loop or recursion should work
+         cmp = element.compareTo(n.element); //compares element to current n.element
          if (cmp == 0) {
             return true;
-         }
+         } // if same, returns true
          else if (cmp < 0) {
             n = n.left;
-         }
+         } // if element<n.element; n = the left(lesser) node value
          else if (cmp > 0) {
             n = n.right;
-         }
-      }
+         } // if element>n.element; n = right (greater) node value
+      } // loops until equivalent value found
       return false;
-   }
+   } // if never found, then returns false once n == null; Means it's not in the BST
 
 
    ////////////////////////////////////////////////////////////////////
